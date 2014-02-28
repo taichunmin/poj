@@ -16,7 +16,7 @@ bool is_prime( int ia )
 
 void build_prime()
 {
-    for( int i=11, j=2; i<=1300000; i+=j, j=6-j )
+    for( int i=11, j=2; p[p_cnt-1]<=1299709; i+=j, j=6-j )
         if( is_prime(i) )
             p[ p_cnt++ ] = i;
 }
@@ -31,6 +31,7 @@ int cmp( const void * aa, const void * bb )
 int main()
 {
     build_prime();
+//    cout<<p_cnt<<' '<<p[p_cnt-1]<<endl;
     while(cin>>find_int,find_int)
     {
         int *ptr = (int*)bsearch( &find_int, p, p_cnt-1, sizeof(int), cmp );
